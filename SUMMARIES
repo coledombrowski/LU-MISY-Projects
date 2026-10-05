@@ -1,0 +1,207 @@
+# MISY 5325 — Cybersecurity Risk Management Projects
+
+This repository contains six projects completed for MISY 5325. Together, the projects develop a cybersecurity risk-management and business-continuity framework for the fictional **Sabine Coastal Health Network (SCHN)**, a healthcare organization operating five facilities and serving approximately 70,000 patients.
+
+The projects progress from establishing a risk-management foundation to identifying assets, analyzing threats, assessing risk, developing mitigation strategies, and finally creating business continuity and disaster recovery plans.
+
+---
+
+## Project 1 — Developing a Risk Management Plan
+
+**Focus:** Establishing SCHN's cybersecurity risk-management foundation.
+
+This project developed a practical risk-management plan for SCHN. It defined the organization's operating environment, resource constraints, scope, major risk categories, responsibilities, compliance considerations, and preliminary assets and activities.
+
+Key areas included:
+
+* Healthcare systems and patient information
+* Limited cybersecurity resources and the need for cost-benefit analysis
+* Technology, personnel, environmental, and third-party risks
+* Roles for executive leadership, IT, clinical leaders, and staff
+* HIPAA and PCI DSS considerations
+* Critical assets such as EHR systems, billing systems, clinical equipment, and patient records
+
+The project established a process for identifying, evaluating, and monitoring risks while maintaining the availability of systems needed for patient care.
+
+---
+
+## Project 2 — Identifying Assets and Activities to Be Protected
+
+**Focus:** Identifying SCHN's critical assets, business activities, and dependencies.
+
+This project expanded the previous risk-management plan by examining SCHN's assets and business functions in greater detail. It also introduced a major scenario change: the implementation of **telehealth and remote patient monitoring**.
+
+The project identified new dependencies on:
+
+* Third-party cloud services
+* SaaS platforms
+* External APIs
+* Patient-owned devices
+* Home networks
+* Internet connectivity
+* Vendor availability
+
+Major business activities included patient care, EHR management, telehealth and remote monitoring, and billing and financial administration.
+
+Five priority assets and activities were identified:
+
+1. EHR Core Platform
+2. Telehealth SaaS Cloud System
+3. Telehealth and Remote Patient Monitoring
+4. Core Corporate Network
+5. IT & Cybersecurity Support Group
+
+The project demonstrated how telehealth expanded SCHN's security boundary beyond its physical facilities and introduced additional third-party and remote-access dependencies.
+
+---
+
+## Project 3 — Identifying and Analyzing Threats, Vulnerabilities, and Exploits
+
+**Focus:** Connecting SCHN's assets to specific cybersecurity threats and attack paths.
+
+Building on Project 2, this project analyzed threats, vulnerabilities, and potential exploits affecting SCHN's critical systems.
+
+Major threats included:
+
+* Microsoft 365 account compromise
+* Internal/trusted-user phishing
+* Telehealth SaaS/API compromise
+* Ransomware
+* Accidental information disclosure
+* Severe environmental disruption
+
+A major scenario involved a **Microsoft 365 billing employee whose credentials were entered into a spoofed sign-in page**, followed by an unfamiliar login and creation of a mailbox forwarding rule. The analysis distinguished confirmed evidence from assumptions and unknowns. Importantly, there was no evidence that the compromised account accessed the EHR.
+
+Three priority exposure paths were selected for formal risk assessment:
+
+1. Microsoft 365 credential compromise and mailbox abuse
+2. Telehealth/API compromise affecting connected systems
+3. Ransomware through endpoint or network compromise
+
+This project established the threat-vulnerability relationships that became the foundation for the formal risk assessment in Project 4.
+
+---
+
+## Project 4 — Defining and Performing a Risk Assessment
+
+**Focus:** Measuring and prioritizing identified cybersecurity risks.
+
+Project 4 converted the findings from Projects 2 and 3 into a formal **qualitative risk assessment**. Because SCHN had limited cybersecurity resources and insufficient historical data for reliable financial calculations, a qualitative approach based on likelihood and impact was selected.
+
+Six risks were assessed:
+
+| Risk | Description             | Risk Level | Priority |
+| ---- | ----------------------- | ---------: | -------: |
+| R1   | Ransomware              |   Critical |        1 |
+| R2   | Credential Compromise   |       High |        2 |
+| R3   | Medical IoT Disruption  |       High |        3 |
+| R4   | Vendor/ePHI Exposure    |       High |        4 |
+| R5   | Insider Misuse          |   Moderate |        5 |
+| R6   | Physical Endpoint Theft |   Moderate |        6 |
+
+The three highest-priority risks were:
+
+* **R1 — Ransomware:** High likelihood / Very High impact
+* **R2 — Credential Compromise:** High likelihood / High impact
+* **R3 — Medical IoT Disruption:** Moderate likelihood / Very High impact
+
+R1, R2, and R3 were selected to move forward into Project 5 because they presented the greatest combination of likelihood, severity, and potential impact on healthcare operations and patient safety.
+
+---
+
+## Project 5 — Turning a Risk Assessment into a Risk Mitigation Plan
+
+**Focus:** Developing controls and an implementation strategy for the highest-priority risks.
+
+Project 5 transformed the risk assessment into a practical mitigation plan. The project determined how SCHN should treat each identified risk and developed specific controls for the highest-priority risks.
+
+Risk treatment decisions included:
+
+* **R1 — Ransomware:** Mitigate
+* **R2 — Credential Theft:** Mitigate
+* **R3 — Medical IoT:** Mitigate
+* **R4 — Vendor Access:** Transfer
+* **R5 — Insider Misuse:** Accept
+
+The primary mitigation initiatives were:
+
+### 1. Universal Multi-Factor Authentication
+
+Apply phishing-resistant MFA to remote connections, VPNs, and external webmail.
+
+### 2. Immutable Cloud Backups
+
+Deploy immutable backups that are isolated from the primary network to support EHR recovery following ransomware or other destructive events.
+
+### 3. Medical IoT Network Segmentation
+
+Place medical devices on dedicated VLANs with restrictive firewall rules to limit lateral movement.
+
+### 4. Vendor Governance and BAA Updates
+
+Strengthen vendor access controls and use contractual requirements, including cyber-insurance indemnification, to transfer portions of vendor-related financial risk.
+
+The implementation plan prioritized MFA within **0–30 days**, immutable backups within **31–90 days**, and medical IoT segmentation within **3–6 months**.
+
+---
+
+## Project 6 — Mitigating Risk with a BIA, BCP, and DRP
+
+**Focus:** Maintaining and restoring critical operations during a major disaster.
+
+The final project developed a **Business Impact Analysis (BIA), Business Continuity Plan (BCP), and Disaster Recovery Plan (DRP)** around a Category 4 hurricane making direct landfall in SCHN's service area.
+
+The scenario assumed:
+
+* Severe flooding and wind damage
+* Loss of power at all five facilities
+* Regional telecommunications outages
+* Internet outages lasting up to 72 hours
+* Limited generator capacity
+* High patient demand
+* Reduced telehealth availability
+
+The BIA established recovery priorities based primarily on patient safety:
+
+1. **Emergency Patient Care**
+2. **EHR Access**
+3. **Telehealth Services**
+4. **Billing & Claims**
+
+The BCP established procedures for maintaining operations during the outage, including paper-based clinical documentation, alternate facility use, cellular communication, and manual telehealth scheduling.
+
+The DRP prioritized restoration in the following sequence:
+
+1. Core network connectivity
+2. EHR and Microsoft 365 access
+3. Data and service restoration
+4. System validation
+5. Return to normal operations
+
+The project ultimately prioritized clinical operations over administrative functions when backup power and network capacity were limited. Billing, HR, and other administrative functions could temporarily remain offline so available resources could be dedicated to emergency care and EHR access.
+
+---
+
+## Overall Project Progression
+
+The six projects form a continuous cybersecurity risk-management process:
+
+**Project 1**
+Establish the risk-management framework
+↓
+**Project 2**
+Identify critical assets, activities, and dependencies
+↓
+**Project 3**
+Identify threats, vulnerabilities, and attack paths
+↓
+**Project 4**
+Assess and prioritize risks
+↓
+**Project 5**
+Develop risk treatments and mitigation controls
+↓
+**Project 6**
+Prepare for operational disruption and disaster recovery
+
+Together, the projects demonstrate how an organization can move from **identifying cybersecurity risks to prioritizing, mitigating, and preparing to recover from them** while balancing security requirements, limited resources, operational needs, and patient safety.
